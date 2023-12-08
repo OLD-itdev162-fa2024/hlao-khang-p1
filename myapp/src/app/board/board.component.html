@@ -1,0 +1,22 @@
+<h1 class="text-4xl font-bold p-2">{{ player }}'s Turn</h1>
+<h2 *ngIf="winner" class="text-3xl font-bold mb-4 p-2">{{ winner }} won!</h2>
+<button class="m-2 border border-slate-400 p-1" (click)="newGame()">
+  New Game
+</button>
+
+<main class="flex justify-center">
+  <table class="border-spacing-0">
+    <tr class="bg-slate-400" *ngFor="let col of squares; let i = index">
+      <td
+        class="border-4 border-red-600"
+        *ngFor="let row of col; let j = index"
+      >
+        <app-square
+          class="bg-slate-400"
+          (click)="makeMove(j)"
+          [value]="row"
+        ></app-square>
+      </td>
+    </tr>
+  </table>
+</main>
